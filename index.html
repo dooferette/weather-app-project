@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+      <script
+      src="https://kit.fontawesome.com/520be76b0a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="outer-container">
+        
+      
+       <section class="top-section">
+        <div class="row">
+          <div class="col-8">
+            <div class="main-header">
+              <h1 id="city">Cambridge</h1>
+              <div class="row">
+                <div class="col-2">
+                  <i class="fas fa-cloud-rain"></i>
+                </div>
+                <div class="col-8">
+                  <h3 id="temp" class="temp-degrees-link">                    
+                      <strong>6</strong> 
+                  </h3>
+                  <h3 class="temp-degrees-link">
+                    <a href = "#" id="celsius">°C</a>
+                    |
+                    <a href = "#" id="fahrenheit">°F</a>
+                  </h3>
+                </div>                
+              </div>
+              <h2 id="weather-description">Moderate Rain</h2>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="top-right-header">
+              <div class="row">
+                <div class="col-6">
+                  <h2 id="day">Friday</h2>
+                  <i class="fas fa-tint"></i>
+                  <p class="humidity" id="humidity">82%</p>
+                </div>
+                <div class="col-6">
+                  <h2 id="time">11:08</h2>
+                  <i class="fas fa-wind"></i>
+                  <p class="winds" id="winds">7.43 km/h</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="middle-section">
+        <img src="media/weather_girl.svg" alt="weather app girl">
+        <form id="search-form">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search a city" aria-label="Search"
+              aria-describedby="button-addon2" id="search-bar">
+            <input class="input-button" type="submit" value="🔍">
+          </div>
+        </form>
+        <a href="#" class="current-location-link"  id="current-location">Use my Location</a>        
+      </section>
+
+      <section class="bottom-section">
+        <div class="row forecast">
+          <div class="col-2 ml-1 md-1">
+            <p class="forecast-grid-time">09:00</p3>
+              <br />
+              <i class="fas fa-cloud-showers-heavy"></i>
+              <p class="forecast-grid-temperature">5°C</p3>
+              </div>
+              <div class="col-2 ml-1 md-1">
+            <p class="forecast-grid-time">12:00</p3>
+              <br/>
+            <i class="fas fa-cloud-sun-rain"></i>
+            <p class="forecast-grid-temperature">7°C</p3>
+          </div>
+          <div class="col-2 ml-1 md-1">
+            <p class="forecast-grid-time">15:00</p3>
+              <br />
+            <i class="fas fa-cloud-rain"></i>
+            <p class="forecast-grid-temperature">8°C</p3>
+          </div>
+          <div class="col-2 ml-1 md-1">
+            <p class="forecast-grid-time">18:00</p3>
+              <br />
+            <i class="fas fa-cloud"></i>
+            <p class="forecast-grid-temperature">7°C</p3>
+          </div>
+          <div class="col-2 ml-1 md-1">
+            <p class="forecast-grid-time">21:00</p3>
+              <br />
+            <i class="fas fa-cloud-moon-rain"></i>
+            <p class="forecast-grid-temperature">4°C</p3>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <p class="footer">Coded by <a class="footer current-location-link" href="https://talitabateman.science" target="_blank">Talita Bateman</a></p>
+  
+  </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
