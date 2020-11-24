@@ -109,7 +109,7 @@ function displayForecast(response){
     <div class="col-2 ml-1 md-1">
             <p class="forecast-grid-time">${formatHours(forecast.dt * 1000)}</p3>
               <br />
-              <img src="http://openweathermap.org/img/wn/${
+              <img src="https://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png" alt="rain" class="main-icon" id="icon">
               <p class="forecast-grid-temperature">${Math.round(forecast.main.temp)}°C</p3>
