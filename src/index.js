@@ -41,23 +41,23 @@ let timeNow = formatTime();
 let timeNowDisplay = document.querySelector("h2#time");
 timeNowDisplay.innerHTML = timeNow;
 
+// Icon changes
+
+
+
 
 // Celcius and Fahrenheit Conversion
 
 function showCelsius(event){
   event.preventDefault();
   let currentCelsiusTemp = document.querySelector("h3#temp");
-  let temperature = currentCelsiusTemp.innerHTML;
-  temperature = Number(temperature);
-  currentCelsiusTemp.innerHTML = Math.round(((temperature - 32) * 5) / 9);
+  currentCelsiusTemp.innerHTML = Math.round(celsiusTemp);
   }
 
 function showFahrenheit(event){
   event.preventDefault();
   let currentFahrenheitTemp = document.querySelector("h3#temp");
-  let temperature = currentFahrenheitTemp.innerHTML;
-  temperature = Number(temperature);
-  currentFahrenheitTemp.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  currentFahrenheitTemp.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
   }
 
 let toCelsius = document.querySelector("#celsius");
@@ -66,15 +66,19 @@ toCelsius.addEventListener("click", showCelsius);
 let toFahrenheit = document.querySelector("#fahrenheit");
 toFahrenheit.addEventListener("click", showFahrenheit);
 
+let celsiusTemp = null;
+
 
 // Change Temperature with City Search
 
 function displayWeather(response){
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("h3#temp").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("h3#temp").innerHTML = Math.round(celsiusTemp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity + "%";
   document.querySelector("#winds").innerHTML = response.data.wind.speed + " km/h";
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+
+  celsiusTemp = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -87,7 +91,7 @@ function showCity(event){
   event.preventDefault();
   let cityInput = document.querySelector("#search-bar").value;
   searchCity(cityInput);
-  }
+}
 
 function searchLocation(position){
   let apiKey = "f8da540cbadec070f67f3f54a6f1afb1";
