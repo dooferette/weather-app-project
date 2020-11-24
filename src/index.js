@@ -41,11 +41,6 @@ let timeNow = formatTime();
 let timeNowDisplay = document.querySelector("h2#time");
 timeNowDisplay.innerHTML = timeNow;
 
-// Icon changes
-
-
-
-
 // Celcius and Fahrenheit Conversion
 
 function showCelsius(event){
@@ -72,11 +67,19 @@ let celsiusTemp = null;
 // Change Temperature with City Search
 
 function displayWeather(response){
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("h3#temp").innerHTML = Math.round(celsiusTemp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity + "%";
   document.querySelector("#winds").innerHTML = response.data.wind.speed + " km/h";
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   celsiusTemp = response.data.main.temp;
 }
