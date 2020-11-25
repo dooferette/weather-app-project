@@ -81,6 +81,7 @@ let celsiusTemp = null;
 // Change Temperature with City Search
 
 function displayWeather(response){
+  celsiusTemp = response.data.main.temp;
   let iconElement = document.querySelector("#icon");
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("h3#temp").innerHTML = Math.round(celsiusTemp);
@@ -95,7 +96,6 @@ function displayWeather(response){
 
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  celsiusTemp = response.data.main.temp;
 }
 
 function displayForecast(response){
