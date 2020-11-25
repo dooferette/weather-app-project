@@ -18,6 +18,10 @@ h2 {
   font-size: 30px;
 }
 
+h2.weather-description {
+  font-size: 25px;
+}
+
 h3 {
   line-height: 2;
 }
@@ -40,6 +44,7 @@ input[type="text"] {
 p.forecast-grid-temperature,
 p.forecast-grid-time {
   color: rgb(65, 65, 65);
+  margin-bottom: 0.6px;
 }
 
 p.humidity,
@@ -93,6 +98,7 @@ a.current-location-link:hover {
 .top-section {
   padding: 20px;
   padding-top: 30px;
+  margin-bottom: 0px;
 }
 
 .middle-section {
@@ -120,13 +126,17 @@ a.current-location-link:hover {
   padding-left: 15px;
 }
 
+.top-section img {
+  width: 80px;
+}
+
 .middle-section img {
-  width: 120px;
+  width: 100px;
   padding-bottom: 5px;
 }
 
 .top-section i {
-  font-size: 40px;
+  font-size: 35px;
   line-height: 1.5;
   padding-left: 2.5px;
   text-align: center;
@@ -137,11 +147,8 @@ a.current-location-link:hover {
   color: #c3fdd6;
 }
 
-.bottom-section i {
-  margin-top: 20px;
-  font-size: 40px;
-  text-shadow: 2px 2px 5px rgba(159, 249, 191, 0.9);
-  color: #726a95;
+.bottom-section img {
+  width: 70px;
 }
 
 .top-right-header i,
