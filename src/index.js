@@ -1,7 +1,7 @@
 //Date & Time
 
-function formatDate(){
-  let now = new Date();
+function formatDate(timestamp){
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -14,11 +14,11 @@ function formatDate(){
   
   let currentDay = days[now.getDay()];
   let displayDay = `${currentDay}`;
-  return displayDay
+  return displayDay;
 }
 
-function formatTime(){
-  let nowTime = new Date();
+function formatTime(timestamp){
+  let nowTime = new Date(timestamp);
   let hours = nowTime.getHours();
     if (hours < 10) {
       hours = `0${hours}`;
@@ -29,28 +29,15 @@ function formatTime(){
     }
 
   let currentTime = `${hours}:${minutes}`
-  return currentTime
+  return currentTime;;
 }
 
-function formatHours(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  return `${hours}:${minutes}`;
-}
-
-let weekDay = formatDate();
+let now = new Date();
+let weekDay = formatDate(now);
 let weekDayDisplay = document.querySelector("h2#day");
 weekDayDisplay.innerHTML = weekDay;
 
-let timeNow = formatTime();
+let timeNow = formatTime(now);
 let timeNowDisplay = document.querySelector("h2#time");
 timeNowDisplay.innerHTML = timeNow;
 
@@ -83,11 +70,18 @@ let celsiusTemp = null;
 function displayWeather(response){
   celsiusTemp = response.data.main.temp;
   let iconElement = document.querySelector("#icon");
+  let weekDay = formatDate(response.data.dt * 1000);
+  let weekDayDisplay = document.querySelector("h2#day");
+  weekDayDisplay.innerHTML = weekDay;
+  let timeNow = formatTime(response.data.dt * 1000);
+  let timeNowDisplay = document.querySelector("h2#time");
+  timeNowDisplay.innerHTML = timeNow;
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("h3#temp").innerHTML = Math.round(celsiusTemp);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity + "%";
   document.querySelector("#winds").innerHTML = response.data.wind.speed + " km/h";
   document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+
 
   iconElement.setAttribute(
     "src",
@@ -107,7 +101,7 @@ function displayForecast(response){
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-2 ml-1 md-1">
-            <p class="forecast-grid-time">${formatHours(forecast.dt * 1000)}</p3>
+            <p class="forecast-grid-time">${formatTime(forecast.dt * 1000)}</p3>
               <br />
               <img src="https://openweathermap.org/img/wn/${
           forecast.weather[0].icon
